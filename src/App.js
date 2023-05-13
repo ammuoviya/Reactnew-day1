@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Pricing from "./pages/Pricing";
+import Cart from "./pages/Cart";
+import Counter from "./pages/Counter";
+
 
 function App() {
+  const[page] = useState("cart");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="pricing py-5">
+        {page === "counter" && <Counter />}
+        {page === "pricing" && <Pricing />}
+        {page === "cart" && <Cart />}
+        
+      </section>
+      
     </div>
   );
 }
